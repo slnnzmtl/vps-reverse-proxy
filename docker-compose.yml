@@ -1,0 +1,38 @@
+services:
+  reverse-proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: reverse-proxy
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - nginx-proxy
+    healthcheck:
+      test: ["CMD", "nginx", "-t"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+    environment:
+      - VIRTUAL_HOST=slnnzmtl.xyz,n8n.slnnzmtl.xyz,crm.slnnzmtl.xyz
+      - n8n_host=${N8N_HOST:-n8n.slnnzmtl.xyz}
+      - n8n_port=${N8N_PORT:-5678}
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  nginx-proxy:
+    external: true

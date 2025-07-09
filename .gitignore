@@ -1,0 +1,97 @@
+# SSL Certificates and Private Keys
+ssl/
+*.pem
+*.key
+*.crt
+*.csr
+*.p12
+*.pfx
+
+# Let's Encrypt / Certbot data
+certbot/
+letsencrypt/
+.well-known/
+
+# Docker volumes and bind mounts
+volumes/
+data/
+
+# Log files
+logs/
+*.log
+*.log.*
+
+# Environment files with secrets
+.env
+.env.*
+!.env.example
+*.env
+
+# Docker secrets
+secrets/
+docker-secrets/
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+temp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git files (if nested repos)
+.git/
+# Note: Don't ignore .gitignore itself
+
+# Docker build cache
+.docker/
+
+# Nginx specific
+nginx_cache/
+proxy_cache/
+fastcgi_cache/
+
+# Process IDs
+*.pid
+
+# Configuration files that might contain sensitive data
+config.local.*
+local.conf
+private.conf
+
+# Archived certificates
+archive/
+renewal/
+accounts/
+
+# Any files containing 'private' or 'secret' in name
+*private*
+*secret*
+*credential*
+*password*
+
+# Compressed files that might contain sensitive data
+*.tar.gz
+*.zip
+*.7z
+*.rar
