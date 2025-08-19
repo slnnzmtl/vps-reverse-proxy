@@ -28,7 +28,7 @@ services:
           cpus: '0.25'
           memory: 128M
     environment:
-      - VIRTUAL_HOST=slnnzmtl.xyz,n8n.slnnzmtl.xyz,crm.slnnzmtl.xyz,dev.slnnzmtl.xyz
+      - VIRTUAL_HOST=slnnzmtl.xyz,n8n.slnnzmtl.xyz,crm.slnnzmtl.xyz,dev.slnnzmtl.xyz,consultant.slnnzmtl.xyz,consultant-backend.slnnzmtl.xyz
       - n8n_host=${N8N_HOST:-n8n.slnnzmtl.xyz}
       - n8n_port=${N8N_PORT:-5678}
     security_opt:
